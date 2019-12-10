@@ -11,11 +11,12 @@ _ cd frontend
 _ cd front_react 
 _ npm start
 
-4 requêtes CRUD fonctionnent : 
-http://localhost/
-.
-.
-.
+4 requêtes CRUD fonctionnent pour les 3 collections : 
+http://localhost:3000/mesures/  : exemple pour le get de la collection Measure
+.PUT 
+.POST 
+.GET
+.DELETE
 
 
 STRUCTURE du projet : 
