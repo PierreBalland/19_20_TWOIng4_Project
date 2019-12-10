@@ -5,6 +5,7 @@ var Measures = require('../controllers/controleur_m');
 
 router.get('/', Measures.findAll);
 router.get('/:id', Measures.findOne);
+router.get('/tipe/:type',Measures.findByType);
 router.put('/',Measures.create);
 router.post('/:id' ,Measures.update);
 router.delete('/:id',Measures.delete);

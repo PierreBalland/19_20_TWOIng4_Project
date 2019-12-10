@@ -5,6 +5,10 @@ import {
 } from 'recharts';
 import axios from "axios";
 
+const API_URL_bedroom="http://localhost:3000/capteurs/location/bedroom";
+const API_URL_livingroom="http://localhost:3000/capteurs/location/livingroom";
+const API_URL_entrance="http://localhost:3000/capteurs/location/entrance";
+const API_URL_bathroom="http://localhost:3000/capteurs/location/bathroom";
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -34,22 +38,24 @@ const data = [
  class Pie1 extends PureComponent {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/c9pL8k61/';
 
-     constructor(props){
+     constructor(props) {
          super(props);
-        // this.state={data:[]}
+         this.state = this.louis();
      }
-     /*
 
-     componentDidMount() {
-             axios.get(`${API_URL_bedroom}`)
+
+     async louis() {
+            await axios.get(`${API_URL_bedroom}`)
                  .then(function(response) {
-                     const truc=response.data;
-                     const main =truc.length;
-                     alert(data[0].value);
-                     const data[0]={}
+                         const truc = response.data;
+                         const main = truc.length;
+                         //alert(main);
+                         data[0].value=main;
+                         //alert(data[0].value);
+                     }
                  )
                  .catch(console.error);
-             axios.get(`${API_URL_entrance}`)
+           await  axios.get(`${API_URL_entrance}`)
                  .then(function(response) {
 
                      const truc1=response.data;
@@ -57,7 +63,7 @@ const data = [
                      data[1].value=main1;
                  })
                  .catch(console.error);
-             axios.get(`${API_URL_bathroom}`)
+           await  axios.get(`${API_URL_bathroom}`)
                  .then(function(response) {
 
                      const truc2=response.data;
@@ -65,7 +71,7 @@ const data = [
                      data[2].value=main2;
                  })
                  .catch(console.error);
-             axios.get(`${API_URL_livingroom}`)
+            await axios.get(`${API_URL_livingroom}`)
                  .then(function(response) {
 
                      const truc3=response.data;
@@ -73,18 +79,22 @@ const data = [
                      data[3].value=main3;
                  })
                  .catch(console.error);
-             alert(data[0].value);
-             this.state = { data};
+          // alert(data[0].value);
+         return data;
          }
 
-      */
+fonction(){
+         this.setState(data);
+}
 
      render() {
+
         return (
             <div>
             <PieChart width={400} height={400}>
+                <p> {this.fonction()}</p>
                 <Pie
-                    data={data}
+                    data={this.state}
                     cx={180}
                     cy={150}
                     labelLine={false}

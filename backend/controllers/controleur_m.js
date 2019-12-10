@@ -144,3 +144,19 @@ exports.delete = (req, res) => {
             });
         });
 };
+
+//trouver toutes les mesures
+exports.findByType = (req, res) => {
+
+    Measures.find({ "type": req.params.type })
+        .then(data => {
+            //var count = sensors.length;
+            res.send(data);
+            console.log(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || 'Some error occurred while retrieving users.'
+            });
+        });
+};
