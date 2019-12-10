@@ -62,19 +62,20 @@ const DEFAULT_STATE = { name: 'accueil'};
     }
 
     handleclickcapteurs(){
-        alert("changestate");
+
         const DEFAULT_STATE2={name: 'capteurs'};
         this.setState(DEFAULT_STATE2);
     }
         handleclickadmin(){
-            alert("changestate");
+
             const DEFAULT_STATE3={name: 'admin'};
             this.setState(DEFAULT_STATE3);
         }
         handleclickaccueil(){
-        alert("changestate");
+
             const DEFAULT_STATE4={name: 'accueil'};
             this.setState(DEFAULT_STATE4);
+            this.componentWillMount();
         }
         add(){
         const user_location=document.getElementById('location').value;
@@ -188,7 +189,7 @@ const DEFAULT_STATE = { name: 'accueil'};
                                                 <div id="home"><button id="str" onClick={() => this.handleclickaccueil()}>Accueil </button> </div>
                                             </div>
                                             <div className="col-lg-2  col-sm-3 d-none d-lg-block">
-                                                <div id="home"><button id="str" onClick={() => this.handleclickcapteurs()}>Voir nos capteurs</button> </div>
+                                                <div id="home"><button id="str" onClick={() => this.handleclickcapteurs()}>Nos capteurs</button> </div>
                                             </div>
                                             <div className="col-lg-2  col-sm-3 d-none d-lg-block">
                                                 <div id="home"><button id="str" onClick={() => this.handleclickadmin()}>Admin</button> </div>

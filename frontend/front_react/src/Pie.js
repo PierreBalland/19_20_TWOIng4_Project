@@ -40,10 +40,10 @@ const data = [
 
      constructor(props) {
          super(props);
-         this.state = this.louis();
+         //this.state = this.louis();
      }
 
-
+/*
      async louis() {
             await axios.get(`${API_URL_bedroom}`)
                  .then(function(response) {
@@ -81,20 +81,20 @@ const data = [
                  .catch(console.error);
           // alert(data[0].value);
          return data;
-         }
-
+         }*/
+/*
 fonction(){
          this.setState(data);
-}
+}*/
 
      render() {
 
         return (
             <div>
             <PieChart width={400} height={400}>
-                <p> {this.fonction()}</p>
+
                 <Pie
-                    data={this.state}
+                    data={data}
                     cx={180}
                     cy={150}
                     labelLine={false}
