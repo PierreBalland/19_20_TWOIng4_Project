@@ -7,6 +7,8 @@ var Sensors = require('../controllers/controleur');
 router.get('/:id', Sensors.findOne);
 //get all sensors
 router.get('/',Sensors.findAll);
+//get sensor by location
+router.get('/location/:loc', Sensors.findByLoc);
 //add a sensor
 router.put('/', Sensors.create);
 //update sensor by id

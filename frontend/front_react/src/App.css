@@ -4,11 +4,21 @@
     border-radius: 10px;
 }
 #asideCard{
-    background-color: #09d3ac;
+    background-color: #00B7FF;
 }
-
 
 #datacard{
 
     width: 10px;
+}
+
+#nav2{
+    font-size: x-large;
+    color: ghostwhite;
+    left: 0;
+}
+
+#main{
+
+
 }

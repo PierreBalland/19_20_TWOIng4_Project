@@ -3,14 +3,8 @@ import React, { PureComponent } from 'react';
 import {
     PieChart, Pie, Sector, Cell,
 } from 'recharts';
+import axios from "axios";
 
-
-const data = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 200 },
-];
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -29,11 +23,65 @@ const renderCustomizedLabel = ({
     );
 };
 
+
+const data = [
+    { name: 'Group A', value: 400 },
+    { name: 'Group B', value: 300 },
+    { name: 'Group C', value: 300 },
+    { name: 'Group D', value: 200 },
+];
+
  class Pie1 extends PureComponent {
     static jsfiddleUrl = 'https://jsfiddle.net/alidingling/c9pL8k61/';
 
-    render() {
+     constructor(props){
+         super(props);
+        // this.state={data:[]}
+     }
+     /*
+
+     componentDidMount() {
+             axios.get(`${API_URL_bedroom}`)
+                 .then(function(response) {
+                     const truc=response.data;
+                     const main =truc.length;
+                     alert(data[0].value);
+                     const data[0]={}
+                 )
+                 .catch(console.error);
+             axios.get(`${API_URL_entrance}`)
+                 .then(function(response) {
+
+                     const truc1=response.data;
+                     const main1 =truc1.length;
+                     data[1].value=main1;
+                 })
+                 .catch(console.error);
+             axios.get(`${API_URL_bathroom}`)
+                 .then(function(response) {
+
+                     const truc2=response.data;
+                     const main2 =truc2.length;
+                     data[2].value=main2;
+                 })
+                 .catch(console.error);
+             axios.get(`${API_URL_livingroom}`)
+                 .then(function(response) {
+
+                     const truc3=response.data;
+                     const main3 =truc3.length;
+                     data[3].value=main3;
+                 })
+                 .catch(console.error);
+             alert(data[0].value);
+             this.state = { data};
+         }
+
+      */
+
+     render() {
         return (
+            <div>
             <PieChart width={400} height={400}>
                 <Pie
                     data={data}
@@ -49,8 +97,11 @@ const renderCustomizedLabel = ({
                         data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
                     }
                 </Pie>
+
             </PieChart>
+            </div>
         );
     }
 }
+
 export default Pie1;

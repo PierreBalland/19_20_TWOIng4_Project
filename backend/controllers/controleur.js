@@ -142,3 +142,18 @@ exports.delete = (req, res) => {
             });
         });
 };
+
+//recherche par location
+exports.findByLoc = (req, res) => {
+    Sensors.find({ "location": req.params.loc })
+        .then(data => {
+
+            res.send(data);
+
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || 'Some error occurred while retrieving sensors.'
+            });
+        });
+};
